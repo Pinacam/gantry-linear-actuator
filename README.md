@@ -54,7 +54,6 @@ The gantry achieved smooth, continuous motion with consistent belt tension; the 
 - `src/gantry_control.ino` — the final Arduino control code: stepper pulsing via `micros()`, limit-switch direction reversal, debounce
 - `cad/project-spacing.iam` — Autodesk Inventor assembly for the gantry parts and spacing/layout
 - `images/` — parts laid out before assembly, the finished gantry, the hand-drawn wiring diagram, setup/loop control-flow diagrams, and a CAD render of the power supply
-- `docs/workshop-report.docx` — full report: objectives, procedure, results/discussion, switch wiring logic (NO/active-high configuration), and lessons learned
 
 ## Lessons learned / what I'd change
 

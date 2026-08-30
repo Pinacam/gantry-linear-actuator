@@ -25,6 +25,14 @@ A gantry plate rides on V-slot bearings along an aluminum extrusion track, drive
 
 ![Hand-drawn wiring diagram](images/hand-drawn-wiring.jpg)
 
+| `setup()` flow | `loop()` flow |
+|---|---|
+| ![Setup flowchart](images/flowchart-setup.png) | ![Loop flowchart](images/flowchart-loop.png) |
+
+## Running it
+
+Wire an Arduino Uno to a TB6600 driver (ENA→pin 2, DIR→pin 3, PUL→pin 4) and a NEMA 17 stepper, with limit switches on pins 5 and 6, then upload `src/gantry_control.ino` via the Arduino IDE. No libraries required — it's plain digital I/O and `micros()` timing.
+
 ## Materials
 
 NEMA 17 stepper motor, TB6600 stepper driver (4A), Arduino Uno (Freenove-compatible board), V-slot aluminum extrusion, gantry plate, GT2 16-tooth pulley + idler + belt, miniature roller-lever limit switches ×2, 12V 60W AC/DC power supply, 3D-printed motor holder and extrusion-end holder, wiring.
@@ -35,7 +43,7 @@ NEMA 17 stepper motor, TB6600 stepper driver (4A), Arduino Uno (Freenove-compati
 
 ## Build process
 
-Parts were modeled in Autodesk Inventor first and laid out on a wooden test board to work out placement before any drilling or printing. From there: 3D-print the brackets → mount everything to the board → wire it up → validate with a basic instructor-provided test sketch → write and test the final control code.
+Parts were modeled in Autodesk Inventor first (`cad/project-spacing.iam`) and laid out on a wooden test board to work out placement before any drilling or printing. From there: 3D-print the brackets → mount everything to the board → wire it up → validate with a basic instructor-provided test sketch → write and test the final control code.
 
 ## Results
 
@@ -43,7 +51,9 @@ The gantry achieved smooth, continuous motion with consistent belt tension; the 
 
 ## Contents
 
-- `images/` — parts laid out before assembly, the finished gantry, the hand-drawn wiring diagram, and a CAD render of the power supply
+- `src/gantry_control.ino` — the final Arduino control code: stepper pulsing via `micros()`, limit-switch direction reversal, debounce
+- `cad/project-spacing.iam` — Autodesk Inventor assembly for the gantry parts and spacing/layout
+- `images/` — parts laid out before assembly, the finished gantry, the hand-drawn wiring diagram, setup/loop control-flow diagrams, and a CAD render of the power supply
 - `docs/workshop-report.docx` — full report: objectives, procedure, results/discussion, switch wiring logic (NO/active-high configuration), and lessons learned
 
 ## Lessons learned / what I'd change
